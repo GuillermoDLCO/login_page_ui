@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:login_page_ui/CustomIcons.dart';
+import 'package:login_page_ui/Widgets/SocialIcons.dart';
 import 'Widgets/FormCard.dart';
 
 void main() => runApp(MaterialApp(
@@ -36,6 +38,15 @@ class _MyAppState extends State<MyApp> {
                     BoxDecoration(shape: BoxShape.circle, color: Colors.black),
               )
             : Container(),
+      );
+
+  Widget horizontalLine() => Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.0),
+        child: Container(
+          width: ScreenUtil.getInstance().setWidth(120),
+          height: 1.0,
+          color: Colors.black26.withOpacity(.2),
+        ),
       );
 
   @override
@@ -115,7 +126,7 @@ class _MyAppState extends State<MyApp> {
                         ],
                       ),
                       InkWell(
-                        onTap: (){},
+                        onTap: () {},
                         child: Container(
                           width: ScreenUtil.getInstance().setWidth(330),
                           height: ScreenUtil.getInstance().setHeight(100),
@@ -136,7 +147,7 @@ class _MyAppState extends State<MyApp> {
                             child: InkWell(
                               child: Center(
                                 child: Text(
-                                  "SINGIN",
+                                  "SIGNIN",
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontFamily: "Poppins-Bold",
@@ -150,6 +161,84 @@ class _MyAppState extends State<MyApp> {
                       )
                     ],
                   ),
+                  SizedBox(
+                    height: ScreenUtil.getInstance().setHeight(40),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      horizontalLine(),
+                      Text(
+                        "Social Login",
+                        style: TextStyle(
+                            fontSize: 16.0, fontFamily: "Poppins-Medium"),
+                      ),
+                      horizontalLine()
+                    ],
+                  ),
+                  SizedBox(
+                    height: ScreenUtil.getInstance().setHeight(40),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      SocialIcon(
+                        colors: [
+                          Color(0xFF102397),
+                          Color(0xFF187adf),
+                          Color(0xFF00eaf8),
+                        ],
+                        iconData: CustomIcons.facebook,
+                        onPressed: () {},
+                      ),
+                      SocialIcon(
+                        colors: [
+                          Color(0xFFff4f38),
+                          Color(0xFFff355d),
+                        ],
+                        iconData: CustomIcons.googlePlus,
+                        onPressed: () {},
+                      ),
+                      SocialIcon(
+                        colors: [
+                          Color(0xFF17ead9),
+                          Color(0xFF6078ea),
+                        ],
+                        iconData: CustomIcons.twitter,
+                        onPressed: () {},
+                      ),
+                      SocialIcon(
+                        colors: [
+                          Color(0xFF00c6fb),
+                          Color(0xFF005bea),
+                        ],
+                        iconData: CustomIcons.linkedin,
+                        onPressed: () {},
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: ScreenUtil.getInstance().setHeight(30),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        "New User? ",
+                        style: TextStyle(fontFamily: "Poppins-Medium"),
+                      ),
+                      InkWell(
+                        onTap: () {},
+                        child: Text(
+                          "SignUp",
+                          style: TextStyle(
+                            color: Color(0xFF5d74e3),
+                            fontFamily: "Poppins-Bold",
+                          ),
+                        ),
+                      )
+                    ],
+                  )
                 ],
               ),
             ),
